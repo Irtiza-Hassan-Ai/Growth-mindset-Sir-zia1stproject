@@ -70,12 +70,12 @@ if upload_files:
                     st.subheader("Conversion Option")
                     conversion_type = st.radio(f"Convert {file.name}to:", ["CSV", "Excel"], key=file.name)
                     if st.button(f"convert{file.name}"):
-                        df.tp.csv(buffer, index=false)
+                        df.to.csv(buffer, index=false)
                         file_name = file.name.replace(file_ext, ".csv")
                         mime_type = "text/csv"
                         
                     elif concersion_type == "excel":
-                        df.to.to_excel(buffer, index=False)
+                        df.to_excel(buffer, index=False)
                         file_name = file.name.replace(file_ext, ".xlse")
                         mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                     buffer.seek(0)
