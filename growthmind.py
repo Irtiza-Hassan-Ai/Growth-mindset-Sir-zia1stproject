@@ -44,8 +44,13 @@ if upload_files:
         st.subheader("Data cleaning Options")
         if st.checkbox(f"Clean data for {file.name}"):
             col1, col2 = st.columns(2)
-            
+
             with col1:
+                if st.button(f"Remove duplicates from the files : {file.name}"):
+                    df.drop_duplicate(inplace=True)
+                    st.write("Duplicate removed!") 
+            
+            with col2:
                 if st.button(f"Remove duplicates from the files : {file.name}"):
                     numeric_cols = df.select_dtypes(includes=['number']).colums
                     df[numeric_cols] = df[numeric_cols].fillna(df[numeric_cols].mean())
