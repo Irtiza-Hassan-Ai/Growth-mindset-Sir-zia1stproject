@@ -29,9 +29,10 @@ if upload_files:
     for file in uploaded_files:
         file_ext = os.path.splittext(file.name)[-1].lower()
         
-        if file_ext == ".csv":
+       if file_ext == ".csv":
             df = pd.read_csv(files)
         elif file_ext == "xlsx":
+            df = pd.read_excel(file)
         else:
             st.error(f"unsupported file type: {file_ext}")
             continue
